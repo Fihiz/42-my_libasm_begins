@@ -49,11 +49,31 @@ Generally speaking, the higher-level a language is, the fewer changes need to be
 
 ```sudo apt update && sudo apt install nasm```
 
-*Run this command to create your object file:*
+*touch hello.asm*
+
+```
+        extern printf           ; the C printf function, to be called
+        section .data           ; Data section, initialized variables
+msg:    db "Hello, world!", 0   ; C string terminates with 0
+fmt:    db "%s", 10, 0          ; The printf format, "\n",'0'
+        section .text           ; Begin code section
+        global main             ; the standard gcc entry point
+main:                           ; the program label for the entry point
+        push    rbp             ; set up stack frame, must be aligned
+        mov     rdi,fmt
+        mov     rsi,msg
+        mov     rax,0           ; can also be: xor rax,rax
+        call    printf          ; Call C printf function
+        pop rbp                 ; restore stack
+        mov rax,0               ; normal, no error, return value
+        ret                     ; return
+```
+
+*run this command to create your object file:*
 
 ```nasm -f elf64 hello.asm```
 
-*The object file is named hello.o.* \
+*the object file is named hello.o.* \
 *use gcc to link this object file to the necessary libraries on your computer, and compile it to an executable file called hello:*
 
 ```gcc hello.o -o hello```
