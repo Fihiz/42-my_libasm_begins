@@ -18,6 +18,7 @@ For x86 family microprocessors , there are a large number of instructions, rangi
 Each line contains only one instruction.
 Depending on its complexity, an assembly code instruction can be executed in one or more microprocessor clock cycles.
 In addition, the same instruction can cost more or less clock cycles depending on the processor model."*
+```label: instruction operands ; comments```
 
 ## Some keywords
 
