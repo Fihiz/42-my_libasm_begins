@@ -33,15 +33,22 @@ In addition, the same instruction can cost more or less clock cycles depending o
 
 * __An inline assembly__ is to embed assembler instructions in your C/C++ code, using the asm keyword. (in Libasm project, we need to render .s files)
 
+* __In Intel syntax Assembly__ 
+
 ## Need to remind some basics about computer memory
 
-*"Computer memory is any physical device capable of storing information temporarily, like RAM (random access memory), or permanently, like ROM (read-only memory). Memory devices utilize integrated circuits and are used by operating systems, software, and hardware.*"
+*"__Computer memory__ is any physical device capable of storing information temporarily, like RAM (random access memory), or permanently, like ROM (read-only memory). Memory devices utilize integrated circuits and are used by operating systems, software, and hardware.*"
+
+*__Stack and heap__ are two different memory management mechanisms. Both are used to manage memory access but their operation and use are not the same. \
+__The stack__ is a portion of the memory allocated by the operating system for the execution of a task. It works like a stack of objects, meaning that the last item to arrive in the stack is the first that can be removed. The stack is used in particular when variables are passed from one function to another. Thanks to the stack system, the task does not have to remember the location of an item within the stack, which makes the stack much faster to use. The size of the stack is decided by the operating system when the task is launched, it cannot be varied, and the stack is deleted when the task is finished. \
+__The heap__ is a location in memory used for dynamic allocations, such as pointers. Unlike the stack, any block in this space can be allocated or released at any time. This system makes the management of the heap more complex and less rapid because it is necessary to constantly know which block is allocated. The heap is created when a process starts and is linked to it. This means that several tasks can access the same block in this memory. It is therefore necessary to manage concurrency. The size of the heap varies and may increase if the program needs more memory. Using the heap is not automatic and depends on the language you are programming with. In C ++ ++, the heap is called with the new or malloc keywords. In the C language, it is necessary to free the memory occupied by pointers when it is no longer needed with the delete or free instructions. Misuse of the heap can cause memory leaks and slow or even disrupt the operation of an application.
 
 ### Helpful links
 [Computer memory](https://www.computerhope.com/jargon/m/memory.htm) \
 [Computer overview](https://www.computerhope.com/issues/ch001262.htm) \
 [Assembly langage](https://www.computerhope.com/jargon/a/al.htm) \
-[Calling Convention tutorial](https://www.raywenderlich.com/615-assembly-register-calling-convention-tutorial)
+[Calling Convention tutorial](https://www.raywenderlich.com/615-assembly-register-calling-convention-tutorial) \
+[Intel vs AT&T syntax](http://staffwww.fullcoll.edu/aclifton/courses/cs241/syntax.html) 
 
 ### Assembly portability (and comparison to C)
 *"__Is ASM portable?__ \
