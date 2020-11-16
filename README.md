@@ -1,10 +1,10 @@
 # LIBASM PROJECT
 
-Assembly yourself : [SUBJECT](https://cdn.intra.42.fr/pdf/pdf/13297/fr.subject.pdf)
+Assembly yourself : [FR subject](https://cdn.intra.42.fr/pdf/pdf/13297/fr.subject.pdf)
 
 ## What is assembler ?
 
-*"The assembler is a so-called low-level language , that is to say that its operation is very close to machine language. It also means that a coding error can absolutely crash your machine. But the advantage of assembly language is that it can manage down to the smallest byte of memory and always know what code is being executed by the microprocessor at a given time.
+*"The assembler is a so-called low-level language, that is to say that its operation is very close to machine language. It also means that a coding error can absolutely crash your machine. But the advantage of assembly language is that it can manage down to the smallest byte of memory and always know what code is being executed by the microprocessor at a given time. \
 The assembler also has the advantage of being fast and low in volume. It is arguably the preferred language of all virus designers. Small comparison: a program displaying "Hello, World!" in C weighs 15,839 bytes, while the same program displaying the same message in Assembler weighs 23 bytes."*
 
 ## What are instructions ?
@@ -17,16 +17,21 @@ For x86 family microprocessors , there are a large number of instructions, rangi
 *"A statement per line : Assembly language can only perform simple actions compared to those of higher level programming languages.
 Each line contains only one instruction.
 Depending on its complexity, an assembly code instruction can be executed in one or more microprocessor clock cycles.
-In addition, the same instruction can cost more or less clock cycles depending on the processor model."*
+In addition, the same instruction can cost more or less clock cycles depending on the processor model."* \
+
 ```label: instruction operands ; comments```
 
 ## Some keywords
 
-* __Microprocessor__, any of a type of miniature electronic device that contains the arithmetic, logic, and control circuitry necessary to perform the functions of a digital computer’s central processing unit. In effect, this kind of integrated circuit can interpret and execute program instructions as well as handle arithmetic operations.
+* __A microprocessor__, any of a type of miniature electronic device that contains the arithmetic, logic, and control circuitry necessary to perform the functions of a digital computer’s central processing unit. In effect, this kind of integrated circuit can interpret and execute program instructions as well as handle arithmetic operations.
 
 * __A register__ is a memory location internal to a processor . Registers are at the top of the memory hierarchy  : they are the fastest memory in a computer, but the manufacturing cost is the highest because space in a microprocessor is limited.
 
 * __A processor__ is the part of a computer that performs operations on the information that is put into it (CPU = Central Processing Unit)
+
+* __An opcode__ is an instruction that performs a simple task on the computer.
+
+* __An inline assembly__ is to embed assembler instructions in your C/C++ code, using the asm keyword. (in Libasm project, we need to render .s files)
 
 ## Need to remind some basics about computer memory
 
@@ -35,14 +40,17 @@ In addition, the same instruction can cost more or less clock cycles depending o
 ### Helpful links
 [Computer memory](https://www.computerhope.com/jargon/m/memory.htm) \
 [Computer overview](https://www.computerhope.com/issues/ch001262.htm) \
-[ASSEMBLY LANGAGE](https://www.computerhope.com/jargon/a/al.htm)
+[Assembly langage](https://www.computerhope.com/jargon/a/al.htm)
+[Calling Convention tutorial](https://www.raywenderlich.com/615-assembly-register-calling-convention-tutorial)
 
 ### Assembly portability (and comparison to C)
-*"__Is ASM portable?__ No. Because assembly languages are tied to one specific computer architecture, they are not portable. __A program written in one assembly language would need to be completely rewritten for it to run on another type of machine.__
-Portability is one of the main advantages of higher-level languages. __The C programming language is often called "portable assembly" because C compilers exist for nearly every modern system architecture.__ A program written in C may require some changes before it will compile on another computer, but the core language is portable.
+*"__Is ASM portable?__ \
+No. Because assembly languages are tied to one specific computer architecture, they are not portable. __A program written in one assembly language would need to be completely rewritten for it to run on another type of machine.__
+Portability is one of the main advantages of higher-level languages. \
+<__The C programming language is often called "portable assembly" because C compilers exist for nearly every modern system architecture.__ A program written in C may require some changes before it will compile on another computer, but the core language is portable.
 Generally speaking, the higher-level a language is, the fewer changes need to be made for it to run on another architecture. The lowest-level languages — machine language and assembly language — are not portable."*
 
-* As we sew above, we need to remind that assembly is proper to the os and the processor machine. Let's have a look on an asm example :
+* As we sew above, we need to remind that assembly is proper to the architecture machine. Let's have a look on an asm example :
 
 #### ASM EXAMPLE FOR LINUX SYSTEM (source : COMPUTER HOPE)
 
