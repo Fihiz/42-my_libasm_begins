@@ -17,7 +17,7 @@ For x86 family microprocessors , there are a large number of instructions, rangi
 *"A statement per line : Assembly language can only perform simple actions compared to those of higher level programming languages.
 Each line contains only one instruction.
 Depending on its complexity, an assembly code instruction can be executed in one or more microprocessor clock cycles.
-In addition, the same instruction can cost more or less clock cycles depending on the processor model."* \
+In addition, the same instruction can cost more or less clock cycles depending on the processor model."*
 
 ```label: instruction operands ; comments```
 
@@ -40,14 +40,15 @@ In addition, the same instruction can cost more or less clock cycles depending o
 ### Helpful links
 [Computer memory](https://www.computerhope.com/jargon/m/memory.htm) \
 [Computer overview](https://www.computerhope.com/issues/ch001262.htm) \
-[Assembly langage](https://www.computerhope.com/jargon/a/al.htm)
+[Assembly langage](https://www.computerhope.com/jargon/a/al.htm) \
 [Calling Convention tutorial](https://www.raywenderlich.com/615-assembly-register-calling-convention-tutorial)
 
 ### Assembly portability (and comparison to C)
 *"__Is ASM portable?__ \
-No. Because assembly languages are tied to one specific computer architecture, they are not portable. __A program written in one assembly language would need to be completely rewritten for it to run on another type of machine.__
+No. Because assembly languages are tied to one specific computer architecture, they are not portable.
+__A program written in one assembly language would need to be completely rewritten for it to run on another type of machine.__
 Portability is one of the main advantages of higher-level languages. \
-<__The C programming language is often called "portable assembly" because C compilers exist for nearly every modern system architecture.__ A program written in C may require some changes before it will compile on another computer, but the core language is portable.
+__The C programming language is often called "portable assembly" because C compilers exist for nearly every modern system architecture.__ A program written in C may require some changes before it will compile on another computer, but the core language is portable.
 Generally speaking, the higher-level a language is, the fewer changes need to be made for it to run on another architecture. The lowest-level languages — machine language and assembly language — are not portable."*
 
 * As we sew above, we need to remind that assembly is proper to the architecture machine. Let's have a look on an asm example :
