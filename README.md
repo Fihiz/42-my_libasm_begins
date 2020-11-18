@@ -25,7 +25,7 @@ In addition, the same instruction can cost more or less clock cycles depending o
 
 * __A microprocessor__, any of a type of miniature electronic device that contains the arithmetic, logic, and control circuitry necessary to perform the functions of a digital computer’s central processing unit. In effect, this kind of integrated circuit can interpret and execute program instructions as well as handle arithmetic operations.
 
-* __A register__ is a memory location internal to a processor . Registers are at the top of the memory hierarchy  : they are the fastest memory in a computer, but the manufacturing cost is the highest because space in a microprocessor is limited.
+* __A register__ is a memory location internal to a processor. Registers are at the top of the memory hierarchy  : they are the fastest memory in a computer, but the manufacturing cost is the highest because space in a microprocessor is limited.
 
 * __A processor__ is the part of a computer that performs operations on the information that is put into it (CPU = Central Processing Unit)
 
@@ -36,6 +36,8 @@ In addition, the same instruction can cost more or less clock cycles depending o
 * __In Intel syntax Assembly__, the destination is before the source (like : ```mov eax, 5```). The main difference between Intel and AT&T syntax is that Intel leaves the sizes of the instruction operands implicit, while AT&T makes them explicit, by appending suffixes to the instruction name (in Libasm project, we need to use Intel syntax).
 
 * __A calling convention__ governs how functions on a particular architecture and operating system interact. This includes rules about includes how function arguments are placed, where return values go, what registers functions may use, how they may allocate local variables, and so forth.
+
+* __A section/segment__ (from nasm official doc = "The SECTION directive (SEGMENT is an exactly equivalent synonym)") is a code section. For example, my section.text is the fixed area that stores my instruction codes.
 
 ## Need to remind some basics about computer memory
 
@@ -112,3 +114,5 @@ int main()
   printf("%s\n",msg);
   return 0;
 }
+
+[NASM Assembly Cheat Sheet](https://www.cs.uaf.edu/2017/fall/cs301/reference/x86_64.html) \  
