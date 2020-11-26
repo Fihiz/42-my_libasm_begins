@@ -6,7 +6,7 @@
 /*   By: sad-aude <sad-aude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 18:22:27 by sad-aude          #+#    #+#             */
-/*   Updated: 2020/11/26 01:31:52 by sad-aude         ###   ########lyon.fr   */
+/*   Updated: 2020/11/26 23:51:53 by sad-aude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,18 +77,13 @@ int     testing_ft_strlen()
 
 int     testing_ft_strcpy()
 {
-    int     test_counter;
-    char    *zero;
+    int     test_counter = 0;
+    char    *zero = "";
+    char *freeze = "J’suis giga, t’es nano, ils peuvent pas m’voir comme si j’ai l’anneau";
+    char *long_one = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
     char    destzero[10];
-    char *freeze;
     char destfreeze[79];
-    char *long_one;
     char destlong_one[445];
-
-    test_counter = 0;
-    zero = "";
-    freeze = "J’suis giga, t’es nano, ils peuvent pas m’voir comme si j’ai l’anneau";
-    long_one = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
     printf("\033[1mLet's testing ft_strcpy !\n\033[0m");
     printf("-------------------------\n");
     printf("\033[1mTested string %d : [%s]\n\033[0m", test_counter, zero);
@@ -182,37 +177,37 @@ int     testing_ft_write()
     printf(" = The valid function gives : [%ld]\n", write(1, test1, strlen(test1)));
     printf(" = The wrong function gives : [%ld]\n", ft_write(1, test1, strlen(test1)));
 	printf("It means the test is : %s\n", (write(1, test1, strlen(test1)) == ft_write(1, test1, strlen(test1))? CORRECT : WRONG));
-    perror("\033[32mSyscall check with errno\033[0m");
+    //perror("\033[32mSyscall check with errno\033[0m");
     printf("-------------------------\n");
     printf("\033[1mTest %d\n\033[0m", ++test_counter);
     printf("-------------------------\n");
     printf(" = The valid function gives : [%ld]\n", write(1, zero, -1));
     printf(" = The wrong function gives : [%ld]\n", ft_write(1, zero, -1));
 	printf("It means the test is : %s\n", (write(1, zero, -1) == ft_write(1, zero, -1)? CORRECT : WRONG));
-    perror("\033[32mSyscall check with errno\033[0m");
+    //perror("\033[32mSyscall check with errno\033[0m");
     printf("-------------------------\n");
     printf("\033[1mTest %d\n\033[0m", ++test_counter);
     printf("-------------------------\n");
     printf(" = The valid function gives : [%ld]\n", write(1, djae, strlen(djae)));
     printf(" = The wrong function gives : [%ld]\n", ft_write(1, djae, strlen(djae)));
 	printf("It means the test is : %s\n", (write(1, djae, strlen(djae)) == ft_write(1, djae, strlen(djae))? CORRECT : WRONG));
-    perror("\033[32mSyscall check with errno\033[0m");
+    //perror("\033[32mSyscall check with errno\033[0m");
     printf("-------------------------\n");
     printf("\033[1mTest %d\n\033[0m", ++test_counter);
     printf("-------------------------\n");
 	printf(" = The valid function gives : [%ld]\n", write(0, NULL, 7));
 	printf(" = The wrong function gives : [%ld]\n", ft_write(0, NULL, 7));
     printf("It means the test is : %s\n", (write(0, NULL, 7) == ft_write(0, NULL, 7)? CORRECT : WRONG));
-    perror("\033[32mSyscall check with errno\033[0m");
+    //perror("\033[32mSyscall check with errno\033[0m");
     printf("-------------------------\n");
     printf("\033[1mTest %d\n\033[0m", ++test_counter);
     printf("-------------------------\n");
 	printf(" = The valid function gives : [%ld]\n", write(2, NULL, 3));
 	printf(" = The wrong function gives : [%ld]\n", ft_write(2, NULL, 3));
     printf("It means the test is : %s\n", (write(2, NULL, 3) == ft_write(2, NULL, 3)? CORRECT : WRONG));
-    perror("\033[32mSyscall check with errno\033[0m");
+    //perror("\033[32mSyscall check with errno\033[0m");
     printf("-------------------------\n");
-     printf("\033[1mTest %d\n\033[0m", ++test_counter);
+    printf("\033[1mTest %d\n\033[0m", ++test_counter);
     printf("-------------------------\n");
 	printf(" = The valid function gives : [%ld]\n", write(2, NULL, -3));
 	printf(" = The wrong function gives : [%ld]\n", ft_write(2, NULL, -3));
@@ -244,47 +239,78 @@ int     testing_ft_read()
     printf(" = The valid function gives : [%ld]\n", read(fd, buffer, -1));
     printf(" = The wrong function gives : [%ld]\n", ft_read(fd, buffer, -1));
 	printf("It means the test is : %s\n", (read(fd, buffer, -1) == ft_read(fd, buffer, -1)? CORRECT : WRONG));
-    perror("\033[32mSyscall check with errno\033[0m");
+    //perror("\033[32mSyscall check with errno\033[0m");
     printf("-------------------------\n");
     printf("\033[1mTest %d\n\033[0m", ++test_counter);
     printf("-------------------------\n");
     printf(" = The valid function gives : [%ld]\n", read(fd, buffer, 0));
     printf(" = The wrong function gives : [%ld]\n", ft_read(fd, buffer, 0));
 	printf("It means the test is : %s\n", (read(fd, buffer, 0) == ft_read(fd, buffer, 0)? CORRECT : WRONG));
-    perror("\033[32mSyscall check with errno\033[0m");
+    //perror("\033[32mSyscall check with errno\033[0m");
     printf("-------------------------\n");
     printf("\033[1mTest %d\n\033[0m", ++test_counter);
     printf("-------------------------\n");
     printf(" = The valid function gives : [%ld]\n", read(fd1, buffer, 100));
     printf(" = The wrong function gives : [%ld]\n", ft_read(fd1, buffer, 100));
 	printf("It means the test is : %s\n", (read(fd1, buffer, 100) == ft_read(fd1, buffer, 100)? CORRECT : WRONG));
-    perror("\033[32mSyscall check with errno\033[0m");
+    //perror("\033[32mSyscall check with errno\033[0m");
     printf("-------------------------\n");
     printf("\033[1mTest %d\n\033[0m", ++test_counter);
     printf("-------------------------\n");
     printf(" = The valid function gives : [%ld]\n", read(fd2, buffer, 75));
     printf(" = The wrong function gives : [%ld]\n", ft_read(fd2, buffer, 75));
 	printf("It means the test is : %s\n", (read(fd2, buffer, 75) == ft_read(fd2, buffer, 75)? CORRECT : WRONG));
-    perror("\033[32mSyscall check with errno\033[0m");
+    //perror("\033[32mSyscall check with errno\033[0m");
     printf("-------------------------\n");
     printf("\033[1mTest %d\n\033[0m", ++test_counter);
     printf("-------------------------\n");
     printf(" = The valid function gives : [%ld]\n", read(fd3, buffer, 10));
     printf(" = The wrong function gives : [%ld]\n", ft_read(fd3, buffer, 10));
 	printf("It means the test is : %s\n", (read(fd3, buffer, 10) == ft_read(fd3, buffer, 10)? CORRECT : WRONG));
-    perror("\033[32mSyscall check with errno\033[0m");
+    //perror("\033[32mSyscall check with errno\033[0m");
     printf("-------------------------\n");
     return (1);
 }
 
 int     testing_ft_strdup()
 {
-    int test_counter = 0;
+    char    *zero = "";
+    char    *destzero;
+    char    *destdupzero;
+    int     test_counter = 0;
+    char    *freeze = "J’suis giga, t’es nano, ils peuvent pas m’voir comme si j’ai l’anneau";
+    char    *destfreeze;
+    char    *destdupfreeze;
+    char    *long_one = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+    char    *destlong_one;
+    char    *destduplong_one;
     printf("\033[1mLet's testing ft_strdup !\n\033[0m");
-    printf("-------------------------\n");
+     printf("-------------------------\n");
     printf("\033[1mTest %d\n\033[0m", test_counter);
     printf("-------------------------\n");
-    printf(" = The wrong function gives : [%s]\n", ft_strdup("hello!"));
+    printf(" = The valid function gives : [%s]\n", destdupzero = strdup(zero));
+    printf(" = The wrong function gives : [%s]\n", destzero = ft_strdup(zero));
+    printf("-------------------------\n");
+	printf("It means the (strcmp on source and dest)test is : %s\n", ((!strcmp(destzero, zero)) ? CORRECT : WRONG));
+    printf("It means the (strcmp on strdup dest result and ft_strdup dest result)test is : %s\n", ((!strcmp(destzero, destdupzero)) ? CORRECT : WRONG));
+    //perror("\033[32mSyscall check with errno\033[0m");
+    printf("-------------------------\n");
+    printf("\033[1mTest %d\n\033[0m", ++test_counter);
+    printf("-------------------------\n");
+    printf(" = The valid function gives : [%s]\n", destdupfreeze = strdup(freeze));
+    printf(" = The wrong function gives : [%s]\n", destfreeze = ft_strdup(freeze));
+    printf("-------------------------\n");
+	printf("It means the (strcmp on source and dest)test is : %s\n", ((!strcmp(destfreeze, freeze)) ? CORRECT : WRONG));
+    printf("It means the (strcmp on strdup dest result and ft_strdup dest result)test is : %s\n", ((!strcmp(destfreeze, destdupfreeze)) ? CORRECT : WRONG));
+    //perror("\033[32mSyscall check with errno\033[0m");
+    printf("-------------------------\n");
+    printf("\033[1mTest %d\n\033[0m", ++test_counter);
+    printf("-------------------------\n");
+    printf(" = The valid function gives : [%s]\n", destduplong_one = strdup(long_one));
+    printf(" = The wrong function gives : [%s]\n", destlong_one = ft_strdup(long_one));
+    printf("-------------------------\n");
+	printf("It means the (strcmp on source and dest)test is : %s\n", ((!strcmp(destlong_one, long_one)) ? CORRECT : WRONG));
+    printf("It means the (strcmp on strdup dest result and ft_strdup dest result)test is : %s\n", ((!strcmp(destlong_one, destduplong_one)) ? CORRECT : WRONG));
     printf("-------------------------\n");
     return (1);
 }
