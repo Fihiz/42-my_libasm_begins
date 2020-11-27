@@ -6,7 +6,7 @@
 /*   By: sad-aude <sad-aude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 18:22:27 by sad-aude          #+#    #+#             */
-/*   Updated: 2020/11/26 23:51:53 by sad-aude         ###   ########lyon.fr   */
+/*   Updated: 2020/11/27 17:24:10 by sad-aude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,11 @@ int     testing_ft_strcpy()
 {
     int     test_counter = 0;
     char    *zero = "";
-    char *freeze = "J’suis giga, t’es nano, ils peuvent pas m’voir comme si j’ai l’anneau";
-    char *long_one = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+    char    *freeze = "J’suis giga, t’es nano, ils peuvent pas m’voir comme si j’ai l’anneau";
+    char    *long_one = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
     char    destzero[10];
-    char destfreeze[79];
-    char destlong_one[445];
+    char    destfreeze[79];
+    char    destlong_one[445];
     printf("\033[1mLet's testing ft_strcpy !\n\033[0m");
     printf("-------------------------\n");
     printf("\033[1mTested string %d : [%s]\n\033[0m", test_counter, zero);
@@ -158,10 +158,12 @@ int     testing_ft_strcmp()
 int     testing_ft_write()
 {
     int     test_counter = 0;
+    int     fd = open("write_in.txt", O_CREAT | O_WRONLY | O_TRUNC, 0666);
     char    *zero = "";
     char    *test = "test\n";
-     char    *test1 = "test1\n";
+    char    *test1 = "test1\n";
     char    *djae = "J'groove comme un White Barry\n";
+    char    *write_in = "I came in that file to write something.\n";
 
     printf("\033[1mLet's testing ft_write !\n\033[0m");
     printf("-------------------------\n");
@@ -200,11 +202,19 @@ int     testing_ft_write()
     printf("It means the test is : %s\n", (write(0, NULL, 7) == ft_write(0, NULL, 7)? CORRECT : WRONG));
     //perror("\033[32mSyscall check with errno\033[0m");
     printf("-------------------------\n");
+    printf("-------------------------\n");
     printf("\033[1mTest %d\n\033[0m", ++test_counter);
     printf("-------------------------\n");
-	printf(" = The valid function gives : [%ld]\n", write(2, NULL, 3));
-	printf(" = The wrong function gives : [%ld]\n", ft_write(2, NULL, 3));
-    printf("It means the test is : %s\n", (write(2, NULL, 3) == ft_write(2, NULL, 3)? CORRECT : WRONG));
+	printf(" = The valid function gives : [%ld]\n", write(0, NULL, 7));
+	printf(" = The wrong function gives : [%ld]\n", ft_write(0, NULL, 7));
+    printf("It means the test is : %s\n", (write(0, NULL, 7) == ft_write(0, NULL, 7)? CORRECT : WRONG));
+    //perror("\033[32mSyscall check with errno\033[0m");
+    printf("-------------------------\n");
+    printf("\033[1mTest on fd %d\n\033[0m", ++test_counter);
+    printf("-------------------------\n");
+	printf(" = The valid function gives : [%ld]\n", write(fd, write_in, strlen(write_in)));
+	printf(" = The wrong function gives : [%ld]\n", ft_write(fd, write_in, strlen(write_in)));
+    printf("It means the test is : %s\n", (write(fd, write_in, strlen(write_in)) == ft_write(fd, write_in, strlen(write_in))? CORRECT : WRONG));
     //perror("\033[32mSyscall check with errno\033[0m");
     printf("-------------------------\n");
     printf("\033[1mTest %d\n\033[0m", ++test_counter);
@@ -323,5 +333,6 @@ int     main()
     testing_ft_write();
     testing_ft_read();
     testing_ft_strdup();
+    printf("Test is finished.\n");
     return (0);
 }
