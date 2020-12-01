@@ -107,12 +107,14 @@ main:                           ; the program label for the entry point
 *Hello, world!\
 this is the same program, written in C:*
 
-```#include <stdio.h>
+```
+#include <stdio.h>
 int main()
 {
   char msg[] = "Hello world\n";
   printf("%s\n",msg);
   return 0;
-}```
+}
+```
 
 [NASM Assembly Cheat Sheet](https://www.cs.uaf.edu/2017/fall/cs301/reference/x86_64.html)  
