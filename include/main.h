@@ -6,7 +6,7 @@
 /*   By: sad-aude <sad-aude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 18:22:16 by sad-aude          #+#    #+#             */
-/*   Updated: 2020/11/26 01:22:47 by sad-aude         ###   ########lyon.fr   */
+/*   Updated: 2020/11/27 18:19:16 by sad-aude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <limits.h>
+#include <stdlib.h>
 
 #define CORRECT "\033[34m[CORRECT]\033[0m"
 #define WRONG   "\033[31m[WRONG]\033[0m"

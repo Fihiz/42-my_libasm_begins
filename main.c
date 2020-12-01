@@ -6,11 +6,12 @@
 /*   By: sad-aude <sad-aude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 18:22:27 by sad-aude          #+#    #+#             */
-/*   Updated: 2020/11/27 17:24:10 by sad-aude         ###   ########lyon.fr   */
+/*   Updated: 2020/11/30 14:09:18 by sad-aude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/main.h"
+#include <limits.h>
 
 int     testing_ft_strlen()
 {
@@ -25,7 +26,7 @@ int     testing_ft_strlen()
     char    *freeze = "J’suis giga, t’es nano, ils peuvent pas m’voir comme si j’ai l’anneau";
     char    *long_one = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
-    printf("\033[1mLet's testing ft_strlen !\n\033[0m");
+    printf("\033[1m\nLet's testing ft_strlen !\n\n\033[0m");
     printf("-------------------------\n");
     printf("\033[1mTested string %d : [%s]\n\033[0m", test_counter, zero);
     printf("The valid function gives : [%lu]\n", strlen(zero));
@@ -84,7 +85,7 @@ int     testing_ft_strcpy()
     char    destzero[10];
     char    destfreeze[79];
     char    destlong_one[445];
-    printf("\033[1mLet's testing ft_strcpy !\n\033[0m");
+    printf("\033[1m\nLet's testing ft_strcpy !\n\n\033[0m");
     printf("-------------------------\n");
     printf("\033[1mTested string %d : [%s]\n\033[0m", test_counter, zero);
     printf("The valid function gives : [%s]\n", strcpy(destzero, zero));
@@ -115,7 +116,7 @@ int     testing_ft_strcmp()
     int     test_counter;
 
     test_counter = 0;
-    printf("\033[1mLet's testing ft_strcmp !\n\033[0m");
+    printf("\033[1m\nLet's testing ft_strcmp !\n\n\033[0m");
     printf("-------------------------\n");
     printf("\033[1mTest %d : s1 is [%s], s2 is [%s]\n\033[0m", test_counter, "", "");
     printf("The valid function gives : [%d]\n", strcmp("", ""));
@@ -157,6 +158,9 @@ int     testing_ft_strcmp()
 
 int     testing_ft_write()
 {
+    int tmp[2];
+	if (pipe(tmp) < 0)
+		exit(EXIT_FAILURE);
     int     test_counter = 0;
     int     fd = open("write_in.txt", O_CREAT | O_WRONLY | O_TRUNC, 0666);
     char    *zero = "";
@@ -165,7 +169,7 @@ int     testing_ft_write()
     char    *djae = "J'groove comme un White Barry\n";
     char    *write_in = "I came in that file to write something.\n";
 
-    printf("\033[1mLet's testing ft_write !\n\033[0m");
+    printf("\033[1m\nLet's testing ft_write !\n\n\033[0m");
     printf("-------------------------\n");
     printf("\033[1mTest %d\n\033[0m", test_counter);
     printf("-------------------------\n");
@@ -202,7 +206,6 @@ int     testing_ft_write()
     printf("It means the test is : %s\n", (write(0, NULL, 7) == ft_write(0, NULL, 7)? CORRECT : WRONG));
     //perror("\033[32mSyscall check with errno\033[0m");
     printf("-------------------------\n");
-    printf("-------------------------\n");
     printf("\033[1mTest %d\n\033[0m", ++test_counter);
     printf("-------------------------\n");
 	printf(" = The valid function gives : [%ld]\n", write(0, NULL, 7));
@@ -224,6 +227,38 @@ int     testing_ft_write()
     printf("It means the test is : %s\n", (write(2, NULL, -3) == ft_write(2, NULL, -3)? CORRECT : WRONG));
     perror("\033[32mSyscall check with errno\033[0m");
     printf("-------------------------\n");
+    printf("\n");
+    printf("\033[1m    FROM LIBASM TESTER\n\033[0m");
+    printf("\n");
+    printf("-------------------------\n");
+    printf(" = The valid function gives : [%ld]\n", write(-1, "tt", 2));
+	printf(" = The wrong function gives : [%ld]\n", ft_write(-1, "tt", 2));
+    printf("It means the test is : %s\n", (write(-1, "tt", 2) == ft_write(-1, "tt", 2)? CORRECT : WRONG));
+    printf("-------------------------\n");
+    printf(" = The valid function gives : [%ld]\n", write(FOPEN_MAX + 1, "tt", 2));
+	printf(" = The wrong function gives : [%ld]\n", ft_write(FOPEN_MAX + 1, "tt", 2));
+    printf("It means the test is : %s\n", (write(FOPEN_MAX + 1, "tt", 2) == ft_write(FOPEN_MAX + 1, "tt", 2) ? CORRECT : WRONG));
+    printf("-------------------------\n");
+    printf(" = The valid function gives : [%ld]\n", write(tmp[1], "test", 4));
+    printf(" = The wrong function gives : [%ld]\n", ft_write(tmp[1], "test", 4));
+    printf("It means the test is : %s\n", (write(tmp[1], "test", 4) == ft_write(tmp[1], "test", 4) ? CORRECT : WRONG));
+    printf("-------------------------\n");
+    printf(" = The valid function gives : [%ld]\n",write(tmp[1], "test", 2));
+    printf(" = The wrong function gives : [%ld]\n", ft_write(tmp[1], "test", 2));
+    printf("It means the test is : %s\n", (write(tmp[1], "test", 2) == ft_write(tmp[1], "test", 2) ? CORRECT : WRONG));
+    printf("-------------------------\n");
+    printf(" = The valid function gives : [%ld]\n", write(tmp[1], NULL, 2));
+    printf(" = The wrong function gives : [%ld]\n", ft_write(tmp[1], NULL, 2));
+    printf("It means the test is : %s\n", (write(tmp[1], NULL, 2) == ft_write(tmp[1], NULL, 2) ? CORRECT : WRONG));
+    printf("-------------------------\n");
+    printf(" = The valid function gives : [%ld]\n", write(-1, "test", 5));
+    printf(" = The wrong function gives : [%ld]\n", ft_write(-1, "test", 5));
+    printf("It means the test is : %s\n", (write(-1, "test", 5) == ft_write(-1, "test", 5) ? CORRECT : WRONG));
+    printf("-------------------------\n");
+    printf(" = The valid function gives : [%ld]\n", write(tmp[1], NULL, 5));
+    printf(" = The wrong function gives : [%ld]\n", ft_write(tmp[1], NULL, 5));
+    printf("It means the test is : %s\n", (write(tmp[1], NULL, 5) == ft_write(tmp[1], NULL, 5) ? CORRECT : WRONG));
+    printf("-------------------------\n");
     return (1);
 }
 
@@ -235,7 +270,7 @@ int     testing_ft_read()
     int     fd2 = open("Makefile", O_RDONLY);
     int     fd3 = open("empty", O_RDONLY);
     char    buffer[100];
-    printf("\033[1mLet's testing ft_read !\n\033[0m");
+    printf("\033[1m\nLet's testing ft_read !\n\n\033[0m");
     printf("-------------------------\n");
     printf("\033[1mTest %d\n\033[0m", test_counter);
     printf("-------------------------\n");
@@ -294,7 +329,7 @@ int     testing_ft_strdup()
     char    *long_one = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
     char    *destlong_one;
     char    *destduplong_one;
-    printf("\033[1mLet's testing ft_strdup !\n\033[0m");
+    printf("\033[1m\nLet's testing ft_strdup !\n\n\033[0m");
      printf("-------------------------\n");
     printf("\033[1mTest %d\n\033[0m", test_counter);
     printf("-------------------------\n");

@@ -25,7 +25,7 @@ ft_strdup:
         ret
 
 end_null:
-        call __errno_location              ; Calling errno value, rax now has the errno address
+        call __errno_location              ; Calling errno value, rax now has the errno address, is necessary ?
         mov [rax], rdx                     ; In rax value, rdx we set
         xor rax, rax                       ; Faster than mov instruction
         ret                                ; Null  
