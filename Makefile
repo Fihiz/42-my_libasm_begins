@@ -6,7 +6,7 @@
 #    By: sad-aude <sad-aude@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/10 16:59:52 by sad-aude          #+#    #+#              #
-#    Updated: 2020/12/02 23:03:00 by sad-aude         ###   ########lyon.fr    #
+#    Updated: 2020/12/02 23:30:11 by sad-aude         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,4 +73,4 @@ draw:
 	@printf "\n"
 
 test: all
-	$(CC) $(CFLAGS) main.c $(NAME) -o result
+	$(CC) $(CFLAGS) testers/lou_test.c $(NAME) -o result
