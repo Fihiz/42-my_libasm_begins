@@ -119,4 +119,6 @@ int main()
 
 [NASM Assembly Cheat Sheet](https://www.cs.uaf.edu/2017/fall/cs301/reference/x86_64.html) \
 [LINUX System Call Table](http://shell-storm.org/shellcode/files/syscalls.html) \
-[NASM Intel Instructions](https://www.bencode.net/blob/nasmcheatsheet.pdf)
+[NASM Intel Instructions](https://www.bencode.net/blob/nasmcheatsheet.pdf) \
+[LIFO Method](https://beta.hackndo.com/stack-introduction/) \
+[Memory Allocation](https://beta.hackndo.com/memory-allocation/)

@@ -15,9 +15,9 @@ copy_system:
           cmp   [rsi + rax], byte 0         ; Is source is null/finished
           jz    end                         ; If above check is valid, jump to end instruction
           mov   dl, byte [rsi + rax]        ; One byte = 8 bits, dl = 8-bit char from rdx
-          mov   byte [rdi + rax], dl        ; Copying src[i] in dest[i]
-          inc   rax
-          jmp   copy_system
+          mov   byte [rdi + rax], dl        ; Copying src[i] in dest[i], dest[i] = src[i]
+          inc   rax                         ; i++
+          jmp   copy_system                 ; Repeating copy_system
 
 end:
           mov   [rdi + rax], byte 0         ; Adding '\0' to dest

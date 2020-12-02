@@ -17,21 +17,21 @@ ft_strcmp:
          xor    r8, r8                  ; 64-bit linux parameters order: rdi, rsi, rdx, rcx, r8, and r9.
 
 strcmp_system:
-        mov     cl, byte [rsi]          ; Copying s2 char to rcx
-        mov     dl, byte [rdi]          ; Copying s1 char to rdx
+        mov     cl, byte [rsi]          ; Copying s2 char to rcx, our temp char
+        mov     dl, byte [rdi]          ; Copying s1 char to rdx, our second temp char
         cmp     dl, 0                   ; Is s1[i]
         je      end                     ; If equal, jump to end instructions
         cmp     cl, 0                   ; Is s2[i] is null
         je      end                     
         cmp     dl, cl                  ; Is s1[i] == s2[i]
         jne     end                     ; If not equal
-        inc     rdi                     ; Incrementing to the next char
+        inc     rdi                     ; Incrementing pointer to the next char
         inc     rsi
-        jmp     strcmp_system           
+        jmp     strcmp_system           ; Repeating strcmp_system
 
 end:
         mov     al, dl                  ; Copying s1[i] in rax
         mov     r8b, cl                 ; Copying s2[i] in r8
         sub     rax, r8                 ; s1[i] - s2[i]
-        ret
+        ret                             ; Returning the difference, may be a negative, positive or null value
         

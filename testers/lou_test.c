@@ -6,11 +6,11 @@
 /*   By: sad-aude <sad-aude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 17:24:39 by lolopez           #+#    #+#             */
-/*   Updated: 2020/12/02 00:47:02 by sad-aude         ###   ########lyon.fr   */
+/*   Updated: 2020/12/02 20:58:29 by sad-aude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/main.h"
+#include "../include/main.h"
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>

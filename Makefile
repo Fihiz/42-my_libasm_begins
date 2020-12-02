@@ -6,7 +6,7 @@
 #    By: sad-aude <sad-aude@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/10 16:59:52 by sad-aude          #+#    #+#              #
-#    Updated: 2020/12/02 17:02:55 by sad-aude         ###   ########lyon.fr    #
+#    Updated: 2020/12/02 21:35:47 by sad-aude         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,4 +73,4 @@ draw:
 	@printf "\n"
 
 test: all
-	$(CC) $(CFLAGS) testers/astrid_main.c $(NAME) -o result
+	$(CC) $(CFLAGS) main.c $(NAME) -o result

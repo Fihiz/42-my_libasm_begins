@@ -13,7 +13,7 @@ ft_strlen:
 strlen_system:
             cmp     [rdi + rax], byte 0     ; Is str is null/finished
             jz      end                     ; If logical condition is valid, jump to end instruction
-            inc     rax                     ; Incrementing my rax counter
+            inc     rax                     ; Incrementing my rax (pointer) counter, i++
             jmp     strlen_system           ; Jmp tells where to pursue instructions (loop in that case)
 
 end:
