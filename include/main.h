@@ -6,12 +6,12 @@
 /*   By: sad-aude <sad-aude@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 18:22:16 by sad-aude          #+#    #+#             */
-/*   Updated: 2020/11/27 18:19:16 by sad-aude         ###   ########lyon.fr   */
+/*   Updated: 2020/12/01 15:30:03 by sad-aude         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBASM_H
-# define LIBASM_H
+#ifndef MAIN_H
+# define MAIN_H
 
 #include <string.h>
 #include <stdio.h>
