@@ -14,14 +14,13 @@ ft_strdup:
         call ft_strlen                     ; Rax takes rdi's strlen (for malloc call)
         inc rax                            ; Adding +1 for '\0'
         push rdi                           ; We'll call an external function that may destroy our register so we'll save it before the call and restore them afterwards
-        mov r8, rdi
         mov rdi, rax
         call malloc                        ; Calling malloc with rax value (strlen of rdi + 1)
         pop rdi                            ; Restore our save-register    
         cmp rax, 0                         ; Malloc protection
         jz end_null                        ; If zero, jump to null return
-        mov rdi, rax                       ; Setting the two params before ft_strcpy calling
-        mov rsi, r8
+        mov rsi, rdi                       ; Setting the two params before ft_strcpy calling (src and dest)
+        mov rdi, rax                       
         call ft_strcpy                     ; Operating ft_strcpy in rax which is our dest pointer
         ret
 
