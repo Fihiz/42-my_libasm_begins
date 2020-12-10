@@ -11,7 +11,7 @@ section .text
 global ft_strcmp
 
 ft_strcmp:
-         xor    rax, rax                ; 8-bit part of rcx is al
+         xor    rax, rax                ; 8-bit part of rax is al
          ;xor    rcx, rcx               ; 8-bit part of rcx is cl
          ;xor    rdx, rdx               ; 8-bit part of rdx is dl
          xor    r8, r8                  ; 64-bit linux parameters order: rdi, rsi, rdx, rcx, r8, and r9.
