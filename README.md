@@ -71,7 +71,7 @@ Generally speaking, the higher-level a language is, the fewer changes need to be
 
 ```sudo apt update && sudo apt install nasm```
 
-*touch hello.asm* ####(In our project, we'll need to deal with .s files, this is just an example)
+*touch hello.asm* (In our project, we'll need to deal with .s files, this is just an example)
 
 ```
         extern printf           ; the C printf function, to be called
