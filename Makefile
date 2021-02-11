@@ -73,4 +73,4 @@ draw:
 	@printf "\n"
 
 test: all
-	$(CC) $(CFLAGS) testers/lou_test.c $(NAME) -o result
+	$(CC) $(CFLAGS) main.c $(NAME) -o result
